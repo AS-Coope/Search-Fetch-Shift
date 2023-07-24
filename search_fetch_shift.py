@@ -24,8 +24,16 @@ def create_src_dir():
     if not path.exists(src_dir):
         os.makedirs(src_dir)
 
-# creating the source directory if it does not exist yet (as a failsafe)
+def check_same_src_dest_dir():
+    if (imgs_dest_dir == dest_dir and pdf_dest_dir == dest_dir):
+        create_dest_dir(dest_dir)
+    else:
+        create_dest_dir(imgs_dest_dir)
+        create_dest_dir(pdf_dest_dir)
+
+# creating the source directory and destination directories if they don't exist yet (as a failsafe)
 create_src_dir()
+check_same_src_dest_dir()
 
 ######## List Declarations for file storage ########
 # lists to hold files and folders in src directory
@@ -40,10 +48,11 @@ def get_all_files():
         if(isfile(join(src_dir, item))):
             all_files_in_src.append(item)
 
+######## Saves all files in the source directory in a list ########
+get_all_files()
+
 def shift_image_files(img_func_dest_dir):
     
-    get_all_files()
-    create_dest_dir(img_func_dest_dir)
     # find all image files (specifically .jpg and .png)
     for file in all_files_in_src:
         # searching specifically for image files and MOVING them from the source directory to the destination directory 
@@ -53,9 +62,6 @@ def shift_image_files(img_func_dest_dir):
 
 def shift_pdf_files(pdf_func_dest_dir):
 
-    get_all_files()
-    create_dest_dir(pdf_func_dest_dir)
-
     # find all image files (specifically .jpg and .png)
     for file in all_files_in_src:
         # searching specifically for image files and MOVING them from the source directory to the destination directory 
@@ -64,5 +70,5 @@ def shift_pdf_files(pdf_func_dest_dir):
             print(file, "successfully moved from", src_dir, "to", pdf_func_dest_dir, "!")
 
 ######## Function Calls ########
-shift_image_files(dest_dir)
 shift_pdf_files(dest_dir)
+shift_image_files(dest_dir)
