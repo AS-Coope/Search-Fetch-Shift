@@ -7,8 +7,10 @@ from os.path import isfile, join
 # Example of file path: "C:\\Users\\your_user_name\\Downloads" [make sure that there are 2 backslashes]
 src_dir = "C:\\Users\\Test_Downloads_Folders"
 dest_dir = ""
+pdf_dest_dir = "C:\\Users\\Test_Downloads_PDFs"
+imgs_dest_dir = "C:\\Users\\Test_Downloads_Images"
 
-def create_dest_dir():
+def create_dest_dir(the_dest_dir):
     # creating the destination directory if it does not exist yet (as a failsafe)
     if not path.exists(dest_dir):
         os.makedirs(dest_dir)
