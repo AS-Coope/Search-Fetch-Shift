@@ -18,5 +18,8 @@ IMPORTANT NOTICE: This was developed and tested on a device operating with a Win
 
 ## Deliverables
 For v1.0:
-- [X] Move image files from source directory to destination directory
-- [ ] Move pdf files from source directory to destination directory
+- [X] The software shall allow the user to move image files from one directory to another.
+- [X] The software shall allow the user to move pdf files from one directory to another.
+- [ ] The software shall allow the user to move file types of their choosing from one directory to another.
+- [ ] The software shall allow the user to store regularly used directory paths.
+- [ ] The software shall persistently store a set of source directory paths and a set of destination directory paths.
