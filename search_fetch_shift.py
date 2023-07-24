@@ -34,4 +34,17 @@ def shift_image_files():
             shutil.move(join(src_dir, file), dest_dir)
             print(file, "successfully moved from", src_dir, "to", dest_dir, "!")
 
+def shift_pdf_files():
+    # creating the destination directory if it does not exist yet (as a failsafe)
+    if not path.exists(dest_dir):
+        os.makedirs(dest_dir)
+
+    # find all image files (specifically .jpg and .png)
+    for file in all_files_in_src:
+        # searching specifically for image files and MOVING them from the source directory to the destination directory 
+        if ( join(src_dir, file).endswith( '.pdf' ) ):
+            shutil.move(join(src_dir, file), dest_dir)
+            print(file, "successfully moved from", src_dir, "to", dest_dir, "!")
+
 shift_image_files()
+shift_pdf_files()
