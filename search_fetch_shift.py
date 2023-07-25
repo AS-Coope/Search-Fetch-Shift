@@ -77,12 +77,18 @@ option = {
     2: shift_pdf_files
 }
 
+# dictonary that selects the directory to push files to depending on the user's input
+dest_dirs = {
+    1 : imgs_dest_dir,
+    2 : pdf_dest_dir
+}
+
 def main_menu():
     print("|Search Fetch Shift")
     print("|1. Moves Image Files (.png, .jpg)")
     print("|2. Move PDF files (.pdf)")
     optionVal = int(input("|Enter the number beside the operation you want to perform: "))
-    option[optionVal](dest_dir)
+    option[optionVal](dest_dirs[optionVal])
 
 main_menu()    
 #shift_image_files()
