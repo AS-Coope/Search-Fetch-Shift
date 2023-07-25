@@ -70,5 +70,20 @@ def shift_pdf_files(pdf_func_dest_dir):
             print(file, "successfully moved from", src_dir, "to", pdf_func_dest_dir, "!")
 
 ######## Function Calls ########
-shift_pdf_files(dest_dir)
-shift_image_files(dest_dir)
+
+# dictionary that selects a specific 'shift' function based on the user's choice in the main menu
+option = {
+    1: shift_image_files,
+    2: shift_pdf_files
+}
+
+def main_menu():
+    print("|Search Fetch Shift")
+    print("|1. Moves Image Files (.png, .jpg)")
+    print("|2. Move PDF files (.pdf)")
+    optionVal = int(input("|Enter the number beside the operation you want to perform: "))
+    option[optionVal](dest_dir)
+
+main_menu()    
+#shift_image_files()
+#shift_pdf_files()
