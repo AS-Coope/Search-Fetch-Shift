@@ -1,6 +1,6 @@
 # Search Fetch Shift (SFS)
 ## Overview
-This is a Python application that allows you to move all image files from one directory to another by adding the source directory's path and the destination directory's path to the code.
+This is a Python application that allows you to move various file types from one directory to another by adding the source directory's path and the destination directory's path to the code.
 
 ## Inspiration
 Truthfully, I've ended up downloading files and not moving them to the directory I eventually wanted them to be in and used/opened them directly from the Downloads directory. The result: days later I would be searching for that file in the location I expected it to be in, only to, minutes later, end up finding it in the Downloads folder, where I left it after using it (this gets worse when I have to download multiple files at the same time to use at the same time). A simple solution would be to just remember to move the files. Although true, sometimes I have to move quickly when working and won't always remember to do that.  
