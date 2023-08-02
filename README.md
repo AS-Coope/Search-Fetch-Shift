@@ -9,7 +9,7 @@ And even more recently, in trying to create a [mobile app that replicates a Gene
 Additionally, I stumbled upon this [project](https://github.com/brentvollebregt/auto-py-to-exe) which has inspired me to see this through long-term (at least to get a good looking graphical user interface up alongside, hopefully, quality code).
 
 ## Usage:
-IMPORTANT NOTICE: This was developed and tested on a device operating with a Windows OS. As such, it may not work as desired on Linux, Mac or other operating systems.
+IMPORTANT NOTICE: This is being developed and tested on a device operating with a Windows OS. As such, it may not work as desired on Linux, Mac or other operating systems.
 - Download and install [Python](https://www.python.org/downloads/) (ensure it is added to [PATH](https://www.geeksforgeeks.org/how-to-add-python-to-windows-path/)).
 - Clone this repository to your machine.
 - Open your favourite text editor/IDE and be sure to add the source directory (where the images you want to move currently reside) and the destination directory (where you want your images to be) absolute paths for the corresponding variables (please follow the format specified in the code in providing the path).
