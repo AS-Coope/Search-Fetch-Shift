@@ -18,8 +18,17 @@ IMPORTANT NOTICE: This is being developed and tested on a device operating with 
 
 ## Deliverables
 For v1.0:
-- [X] The software shall allow the user to move image files from one directory to another.
-- [X] The software shall allow the user to move pdf files from one directory to another.
-- [ ] The software shall allow the user to move file types of their choosing from one directory to another.
-- [ ] The software shall allow the user to store regularly used directory paths.
-- [ ] The software shall persistently store a set of source directory paths and a set of destination directory paths.
+- [X] The software shall allow the user to move files of the same file type from one directory to another.
+
+For v1.5
+- [ ] The software shall allow the user to copy files of the same file type from one directory to another.
+- [ ] The software shall provide the user with a set of commonly used file types for them to choose from when
+deciding which files to move.
+- [ ] The software shall allow the user to enter a specific file type.
+
+For v2.0
+- [ ] The software shall allow the user to store regularly used (whether as a source or destination) directory paths and store them persistently.
+- [ ] The software shall allow the user to choose the directory (whether source or destination) via a dialog box 
+(file explorer).
+- [ ] The software shall determine the user's Operating System and operate on directories based on the file system structure.
+- [ ] Create a test suite to ensure proper functionality of all features.
