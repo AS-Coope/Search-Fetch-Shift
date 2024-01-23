@@ -22,11 +22,11 @@ Download and install [Python](https://www.python.org/downloads/) (ensure it is a
 
 - Activate the virtual environment by entering the following via the command-line/terminal `.\venv\Scripts\activate` on Windows. For MacOS or Linux: `source venv/bin/activate`.
 
-- [Before doing this step, please ensure that the virtual environment **is** activated] A requirements.txt file is part of the repo. To install the external dependencies, run the following command in the command-line/terminal: `pip install -r requirements.txt` (NOTE: This project currently does not rely on external dependencies, so there is no need to follow this step).
-
-- To deactivate the virtual environment, run the following command: `deactivate`.
+- [Before doing this step, please ensure that thevirtual environment **is** activated] A requirements.txt file is part of the repo. To install the external dependencies, run the following command in the command-line/terminal: `pip install -r requirements.txt` (NOTE: This project currently does not rely on external dependencies, so there is no need to follow this step).
 
 - To start the program, run the following command: `python search_fetch_shift.py`.
+
+- To deactivate the virtual environment, run the following command: `deactivate`.
 
 ## Deliverables
 For v1.0:
