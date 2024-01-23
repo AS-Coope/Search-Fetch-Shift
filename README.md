@@ -1,5 +1,5 @@
 # Search Fetch Shift (SFS)
-This is a command line application that allows you to move files of similar file type from one directory to the next, all at once!
+This is a command-line application that allows you to move files of similar file type from one directory to the next, all at once!
 
 ## Motivation
 
@@ -11,12 +11,22 @@ And even more recently, in trying to create a [mobile app that replicates a Gene
 Additionally, I stumbled upon this [project](https://github.com/brentvollebregt/auto-py-to-exe) which has inspired me to see this through long-term (at least to get a good looking graphical user interface up alongside, hopefully, quality code).
 
 ## Usage:
-IMPORTANT NOTICE: This is being developed and tested on a device operating with a Windows OS. As such, it may not work as desired on Linux, Mac or other operating systems.
-- Download and install [Python](https://www.python.org/downloads/) (ensure it is added to [PATH](https://www.geeksforgeeks.org/how-to-add-python-to-windows-path/)).
-- Clone this repository to your machine.
-- Open your favourite text editor/IDE and be sure to add the source directory (where the images you want to move currently reside) and the destination directory (where you want your images to be) absolute paths for the corresponding variables (please follow the format specified in the code in providing the path).
-- Open command prompt and navigate to the directory where the code is housed. Alternatively, you can click in the address bar of that directory, type cmd and press Enter to open the command prompt to that file path.
-- Type: ```python search_fetch_shift.py``` and press Enter.
+**IMPORTANT NOTICE**: This is currently being developed and tested on a device operating a Windows OS. As such, it may not work as desired on Linux, Mac or other operating systems.
+
+### Installation
+Download and install [Python](https://www.python.org/downloads/) (ensure it is added to [PATH](https://www.geeksforgeeks.org/how-to-add-python-to-windows-path/)).
+
+
+#### Create a virtual environment
+- Python projects generally have a virtual environment to isolate its dependencies. This project is no exception. To create a virtual environment run the following command via the command-line/terminal: `python -m venv [name of your virtual environment]`. Conventionally, `venv` is used as the name of the virtual environment, but you can name it whatever you desire.
+
+- Activate the virtual environment by entering the following via the command-line/terminal `.\venv\Scripts\activate` on Windows. For MacOS or Linux: `source venv/bin/activate`.
+
+- [Before doing this step, please ensure that the virtual environment **is** activated] A requirements.txt file is part of the repo. To install the external dependencies, run the following command in the command-line/terminal: `pip install -r requirements.txt` (NOTE: This project currently does not rely on external dependencies, so there is no need to follow this step).
+
+- To deactivate the virtual environment, run the following command: `deactivate`.
+
+- To start the program, run the following command: `python search_fetch_shift.py`.
 
 ## Deliverables
 For v1.0:
