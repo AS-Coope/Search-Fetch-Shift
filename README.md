@@ -36,7 +36,7 @@ For v1.5
 - [ ] The software shall allow the user to copy files of the same file type from one directory to another.
 - [ ] The software shall provide the user with a set of commonly used file types for them to choose from when
 deciding which files to move.
-- [ ] The software shall allow the user to enter a specific file type.
+- [X] The software shall allow the user to enter a specific file type.
 
 For v2.0
 - [ ] The software shall allow the user to store regularly used (whether as a source or destination) directory paths and store them persistently.
