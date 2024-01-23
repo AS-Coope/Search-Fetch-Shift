@@ -8,10 +8,12 @@ from os.path import isfile, join
 # Example of file path: "C:\\Users\\your_user_name\\Downloads" [make sure that there are 2 backslashes]
 
 ## NOTE: The PUBLIC folder in the C drive is available to all users of the system ##
-src_dir = "C:\\Users\\Public\\Public Downloads"
-dest_dir = "C:\\Users\\Public\\Public Documents"
-pdf_dest_dir = "C:\\Users\\Public\\Public Documents"
-imgs_dest_dir = "C:\\Users\\Public\\Public Documents"
+public_downloads = "C:\\Users\\Public\\Public Downloads"
+public_documents = "C:\\Users\\Public\\Public Documents" 
+src_dir = public_documents
+dest_dir = public_downloads
+pdf_dest_dir = public_downloads
+imgs_dest_dir = public_downloads
 
 ######## Directory Existence Checks ########
 def create_dest_dir(the_dest_dir):
