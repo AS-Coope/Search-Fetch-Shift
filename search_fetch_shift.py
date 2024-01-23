@@ -72,6 +72,9 @@ def shift_pdf_files(pdf_func_dest_dir):
             shutil.move(join(src_dir, file), pdf_func_dest_dir)
             print(file, "successfully moved from", src_dir, "to", pdf_func_dest_dir, "!")
 
+def exitProgram():
+    print("Program now closing!")
+    sys.exit()
 ######## Function Calls ########
 
 # dictionary that selects a specific 'shift' function based on the user's choice in the main menu
@@ -90,8 +93,13 @@ def main_menu():
     print("|Search Fetch Shift")
     print("|1. Moves Image Files (.png, .jpg)")
     print("|2. Move PDF files (.pdf)")
+    print("|0. Exit program")
     optionVal = int(input("|Enter the number beside the operation you want to perform: "))
-    option[optionVal](dest_dirs[optionVal])
+
+    if (optionVal == 0):
+        exitProgram()
+    else:
+        option[optionVal](dest_dirs[optionVal])
 
 main_menu()    
 #shift_image_files()
