@@ -115,6 +115,15 @@ def main_menu():
     else:
         option[optionVal](dest_dirs[optionVal])
 
-main_menu()    
+main_menu()
+'''
+Ask the user for a directory
+Ask the user if they'd like to save the directory
+If yes, prompt the user to assign a name
+If no... don't save it...
+
+Before shifting, ask the user if the directory is already saved
+Present them a list of all directories, and give them the option to choose one
+'''
 #shift_image_files()
 #shift_pdf_files()
