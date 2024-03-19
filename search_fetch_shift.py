@@ -1,6 +1,7 @@
 import os
 import sys
 import shutil
+import json
 from os import path, listdir
 from os.path import isfile, join
 
@@ -98,11 +99,14 @@ dest_dirs = {
     3 : dest_dir
 }
 
+saved_dirs = {}
 def main_menu():
     print("|Search Fetch Shift")
     print("|1. Moves Image Files (.png, .jpg)")
     print("|2. Move PDF files (.pdf)")
     print("|3. Move files of another type")
+    print("|4. Add a directory")
+    print("|5. Look at directories")
     print("|0. Exit program")
     optionVal = int(input("|Enter the number beside the operation you want to perform: "))
 
@@ -112,6 +116,29 @@ def main_menu():
         file_ext_input = input("Enter the file extension (Do not add the period in front of the extension)\n" + 
               "Example: to use text files, enter 'txt' instead of '.txt': ")
         option[optionVal](dest_dirs[optionVal], file_ext_input)
+    elif(optionVal == 4):
+        dir_name = input("Please enter the directory name: ")
+        dir_path = input("Please add the directory's absolute path: ")
+
+        with open('sample.json', 'r') as openfile:
+        # Reading from json file
+            saved_dirs = json.load(openfile)
+        
+        saved_dirs[dir_name] = dir_path
+        y = json.dumps(saved_dirs)
+        print(y)
+        with open("sample.json", "w") as outfile:
+            outfile.write(y)
+
+    elif(optionVal == 5):
+        with open('sample.json', 'r') as openfile:
+ 
+        # Reading from json file
+            json_object = json.load(openfile)
+ 
+            print(json_object)
+            print(type(json_object))
+        pass
     else:
         option[optionVal](dest_dirs[optionVal])
 
