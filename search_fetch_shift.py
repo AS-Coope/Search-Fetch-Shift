@@ -12,10 +12,12 @@ from os.path import isfile, join
 ## NOTE: The PUBLIC folder in the C drive is available to all users of the system ##
 public_downloads = "C:\\Users\\Public\\Public Downloads"
 public_documents = "C:\\Users\\Public\\Public Documents" 
+directory_file = "sample.json"
 src_dir = public_downloads
 dest_dir = public_documents
 pdf_dest_dir = public_downloads
 imgs_dest_dir = public_downloads
+current_dir = os.getcwd()
 
 ######## Directory Existence Checks ########
 def create_dest_dir(the_dest_dir):
@@ -129,7 +131,7 @@ def main_menu():
             print(y)
             with open("sample.json", "w") as outfile:
                 outfile.write(y)
-        except Exception as e:
+        except FileNotFoundError as e:
             print(e)
             print("An error occurred while trying to open the JSON file.")
             print("The file may not have been created.")
