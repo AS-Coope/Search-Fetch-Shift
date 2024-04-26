@@ -12,7 +12,7 @@ from os.path import isfile, join
 ## NOTE: The PUBLIC folder in the C drive is available to all users of the system ##
 public_downloads = "C:\\Users\\Public\\Public Downloads"
 public_documents = "C:\\Users\\Public\\Public Documents" 
-directory_file = "sample.json"
+directory_file = ".\\sample.json"
 src_dir = public_downloads
 dest_dir = public_documents
 pdf_dest_dir = public_downloads
@@ -102,6 +102,14 @@ dest_dirs = {
 }
 
 saved_dirs = {}
+
+def create_directory_store():
+    if not os.path.exists(directory_file):
+        json_data = json.dumps(saved_dirs)
+        with open('sample.json', 'w') as file:
+            file.write(json_data)
+        print("Directory Store JSON file successfully created!")
+
 def main_menu():
     print("|Search Fetch Shift")
     print("|1. Moves Image Files (.png, .jpg)")
@@ -154,6 +162,7 @@ def main_menu():
     else:
         option[optionVal](dest_dirs[optionVal])
 
+create_directory_store()
 main_menu()
 '''
 Ask the user for a directory
