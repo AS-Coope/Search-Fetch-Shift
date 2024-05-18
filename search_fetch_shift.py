@@ -13,8 +13,8 @@ from os.path import isfile, join
 public_downloads = "C:\\Users\\Public\\Public Downloads"
 public_documents = "C:\\Users\\Public\\Public Documents" 
 directory_file = ".\\sample.json"
-src_dir = public_downloads
-dest_dir = public_documents
+#src_dir = public_downloads
+#dest_dir = public_documents
 pdf_dest_dir = public_downloads
 imgs_dest_dir = public_downloads
 current_dir = os.getcwd()
@@ -38,25 +38,24 @@ def check_same_src_dest_dir():
         create_dest_dir(pdf_dest_dir)
 
 # creating the source directory and destination directories if they don't exist yet (as a failsafe)
-create_src_dir()
-check_same_src_dest_dir()
+#create_src_dir()
+#check_same_src_dest_dir()
 
 ######## List Declarations for file storage ########
 # lists to hold files and folders in src directory
-all_items_in_src = listdir(src_dir)
+#all_items_in_src = listdir(src_dir)
 all_files_in_src = []
 
 ######## Business Logic for file shifting ########
-def get_all_files():
+def get_all_files(src_dir):
+    all_items_in_src = listdir(src_dir)
     for item in all_items_in_src:
 
         # getting all the files in the source directory
         if(isfile(join(src_dir, item))):
             all_files_in_src.append(item)
 
-######## Saves all files in the source directory in a list ########
-get_all_files()
-
+### obsolete method
 def shift_image_files(img_func_dest_dir):
     
     # find all image files (specifically .jpg and .png)
@@ -66,6 +65,7 @@ def shift_image_files(img_func_dest_dir):
             shutil.move(join(src_dir, file), img_func_dest_dir)
             print(file, "successfully moved from", src_dir, "to", img_func_dest_dir, "!")
 
+### obsolete method
 def shift_pdf_files(pdf_func_dest_dir):
 
     # find all image files (specifically .jpg and .png)
@@ -75,12 +75,16 @@ def shift_pdf_files(pdf_func_dest_dir):
             shutil.move(join(src_dir, file), pdf_func_dest_dir)
             print(file, "successfully moved from", src_dir, "to", pdf_func_dest_dir, "!")
 
-def shift_files(file_func_dest_dir, file_ext):
+def shift_files(dest_dir, src_dir, file_ext):
+    # Saves all files in the source directory in a list #
+    get_all_files(src_dir)
     for file in all_files_in_src:
             # searching specifically for files of a specified file type/extension and MOVING them from the source directory to the destination directory 
             if ( join(src_dir, file).endswith( file_ext ) ):
-                shutil.move(join(src_dir, file), file_func_dest_dir)
-                print(file, "successfully moved from", src_dir, "to", file_func_dest_dir, "!")
+                shutil.move(join(src_dir, file), dest_dir)
+                print(file, "successfully moved from", src_dir, "to", dest_dir, "!")
+    all_files_in_src.clear()
+
 
 def exitProgram():
     print("Program now closing!")
@@ -97,8 +101,8 @@ option = {
 # dictonary that selects the directory to push files to depending on the user's input
 dest_dirs = {
     1 : imgs_dest_dir,
-    2 : pdf_dest_dir,
-    3 : dest_dir
+    2 : pdf_dest_dir
+    #3 : dest_dir
 }
 
 saved_dirs = {}
@@ -138,7 +142,7 @@ def main_menu():
         print(src_dir)
         dest_dir = input("Enter the path of the receiving directory: ")
         print(dest_dir)
-        shift_files(dest_dir, file_ext_input)
+        shift_files(dest_dir, src_dir, file_ext_input)
         # Store that directory in the directory store JSON file
         # Use that directory to move the files and inform the user of the outcome of the operation
         # If not, ask for the absolute path of the directory alone
