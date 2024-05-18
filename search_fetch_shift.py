@@ -57,6 +57,7 @@ def get_all_files(src_dir):
             all_files_in_src.append(item)
 
 ### obsolete method
+'''
 def shift_image_files(img_func_dest_dir):
     
     # find all image files (specifically .jpg and .png)
@@ -65,8 +66,9 @@ def shift_image_files(img_func_dest_dir):
         if ( join(src_dir, file).endswith( ('.jpg', '.png') ) ):
             shutil.move(join(src_dir, file), img_func_dest_dir)
             print(file, "successfully moved from", src_dir, "to", img_func_dest_dir, "!")
-
+'''
 ### obsolete method
+'''
 def shift_pdf_files(pdf_func_dest_dir):
 
     # find all image files (specifically .jpg and .png)
@@ -75,7 +77,7 @@ def shift_pdf_files(pdf_func_dest_dir):
         if ( join(src_dir, file).endswith( '.pdf' ) ):
             shutil.move(join(src_dir, file), pdf_func_dest_dir)
             print(file, "successfully moved from", src_dir, "to", pdf_func_dest_dir, "!")
-
+'''
 def shift_files(dest_dir, src_dir, file_ext):
     # Saves all files in the source directory in a list #
     get_all_files(src_dir)
@@ -83,7 +85,7 @@ def shift_files(dest_dir, src_dir, file_ext):
             # searching specifically for files of a specified file type/extension and MOVING them from the source directory to the destination directory 
             if ( join(src_dir, file).endswith( file_ext ) ):
                 shutil.move(join(src_dir, file), dest_dir)
-                print(file, "successfully moved from", src_dir, "to", dest_dir, "!")
+                print(file, "successfully moved from '", src_dir, "' to '", dest_dir, "'!")
     all_files_in_src.clear()
 
 
@@ -93,18 +95,18 @@ def exitProgram():
 ######## Function Calls ########
 
 # dictionary that selects a specific 'shift' function based on the user's choice in the main menu
-option = {
+'''option = {
     1: shift_image_files,
     2: shift_pdf_files,
     3: shift_files
-}
+}'''
 
 # dictonary that selects the directory to push files to depending on the user's input
-dest_dirs = {
+'''dest_dirs = {
     1 : imgs_dest_dir,
     2 : pdf_dest_dir
     #3 : dest_dir
-}
+}'''
 
 saved_dirs = {}
 
