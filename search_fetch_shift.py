@@ -48,6 +48,7 @@ all_files_in_src = []
 
 ######## Business Logic for file shifting ########
 def get_all_files(src_dir):
+    # check for the existence of the src_dir using create_src_dir
     all_items_in_src = listdir(src_dir)
     for item in all_items_in_src:
 
@@ -142,6 +143,7 @@ def main_menu():
         print(src_dir)
         dest_dir = input("Enter the path of the receiving directory: ")
         print(dest_dir)
+        # perform failure checks to ensure that the src_dir and dest_dir are valid addresses
         shift_files(dest_dir, src_dir, file_ext_input)
         # Store that directory in the directory store JSON file
         # Use that directory to move the files and inform the user of the outcome of the operation
