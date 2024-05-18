@@ -123,16 +123,22 @@ def main_menu():
     if (optionVal == 0):
         exitProgram()
     elif(optionVal == 3):
-        file_ext_input = input("Enter the file extension (Do not add the period in front of the extension)\n" + 
-              "Example: to use text files, enter 'txt' instead of '.txt': ")
-        option[optionVal](dest_dirs[optionVal], file_ext_input)
         # How this should work
         # First, ask the file type the user would like to move
+        file_ext_input = input("Enter the file extension (Do not add the period in front of the extension)\n" + 
+              "Example: to use text files, enter 'txt' instead of '.txt': ")
+        #option[optionVal](dest_dirs[optionVal], file_ext_input)
         # Then, display all saved directories (name and actual path)
+        # Ask, for the source directory
         # Then, ask the user if they would like to use an existing (saved) directory or use another one
         # If they want to use an existing directory, then they should choose from the list
         # If not, ask them if they would like to save the directory they are about to use
         # If yes, let them enter a name and the absolute path of the directory
+        src_dir = input("Enter the path of the sending directory: ")
+        print(src_dir)
+        dest_dir = input("Enter the path of the receiving directory: ")
+        print(dest_dir)
+        shift_files(dest_dir, file_ext_input)
         # Store that directory in the directory store JSON file
         # Use that directory to move the files and inform the user of the outcome of the operation
         # If not, ask for the absolute path of the directory alone
