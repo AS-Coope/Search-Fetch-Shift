@@ -152,6 +152,9 @@ def main_menu():
         dest_dir = input("Enter the path of the receiving directory: ")
         create_dir(dest_dir)
         print(dest_dir)
+        # For both src_dir and dest_dir, do failure checks to make sure the path is valid (starts with C:\, etc)
+        # Will need to setup relevant functions to accept different paths depending on if the OS is Windows or Linux
+        # There should be a design pattern that allows that accommodation
         shift_files(dest_dir, src_dir, file_ext_input)
         # Store that directory in the directory store JSON file
         # Use that directory to move the files and inform the user of the outcome of the operation
