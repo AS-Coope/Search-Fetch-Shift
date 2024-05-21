@@ -181,21 +181,24 @@ def main_menu():
         
 
     elif(optionVal == 5):
-        try:
-            with open('sample.json', 'r') as openfile:
-    
-            # Reading from json file
-                json_object = json.load(openfile)
-    
-                print(json_object)
-                print(type(json_object))
-            pass
-        except FileNotFoundError as e:
-            print(e)
-            print("An error occurred while trying to open the JSON file.")
-            print("The file may not have been created.")
+        open_file()
     '''else:
         option[optionVal](dest_dirs[optionVal])'''
+
+def open_file():
+    try:
+        with open('sample.json', 'r') as openfile:
+
+        # Reading from json file
+            json_object = json.load(openfile)
+
+            print(json_object)
+            #print(type(json_object))
+        pass
+    except FileNotFoundError as e:
+        print(e)
+        print("An error occurred while trying to open the JSON file.")
+        print("The file may not have been created.")
 
 create_directory_store()
 main_menu()
