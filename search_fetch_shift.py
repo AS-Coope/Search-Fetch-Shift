@@ -194,8 +194,8 @@ def main_menu():
             print(e)
             print("An error occurred while trying to open the JSON file.")
             print("The file may not have been created.")
-    else:
-        option[optionVal](dest_dirs[optionVal])
+    '''else:
+        option[optionVal](dest_dirs[optionVal])'''
 
 create_directory_store()
 main_menu()
