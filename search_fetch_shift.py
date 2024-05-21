@@ -163,9 +163,23 @@ def move_file():
     src_dir = input("Enter the path of the sending directory: ")
     create_dir(src_dir)
     print(src_dir)
+
+    save_dir = input("Want to save the source path for later use? (Y/N)")
+    if (save_dir == "Y" or save_dir == "y"):
+        src_dir_name = input("Enter the name/nickname (not path) for the directory: ")
+        if (src_dir_name != ""):
+            write_to_file(src_dir_name, src_dir)
+
     dest_dir = input("Enter the path of the receiving directory: ")
     create_dir(dest_dir)
     print(dest_dir)
+
+    save_dir = input("Want to save the source path for later use? (Y/N)")
+    if (save_dir == "Y" or save_dir == "y"):
+        src_dir_name = input("Enter the name/nickname (not path) for the directory: ")
+        if (src_dir_name != ""):
+            write_to_file(src_dir_name, dest_dir)
+
     # For both src_dir and dest_dir, do failure checks to make sure the path is valid (starts with C:\, etc)
     # Will need to setup relevant functions to accept different paths depending on if the OS is Windows or Linux
     # There should be a design pattern that allows that accommodation (Strategy Pattern)
