@@ -30,6 +30,10 @@ def create_src_dir():
     if not path.exists(src_dir):
         os.makedirs(src_dir)
 
+def create_dir(dir):
+    if not path.exists(dir):
+        os.makedirs(dir)
+
 def check_same_src_dest_dir():
     if (imgs_dest_dir == dest_dir and pdf_dest_dir == dest_dir):
         create_dest_dir(dest_dir)
