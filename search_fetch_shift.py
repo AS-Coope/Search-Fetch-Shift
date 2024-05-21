@@ -164,26 +164,29 @@ def main_menu():
     elif(optionVal == 4):
         dir_name = input("Please enter the directory name: ")
         dir_path = input("Please add the directory's absolute path: ")
-        try:
-            with open('sample.json', 'r') as openfile:
-                # Reading from json file
-                saved_dirs = json.load(openfile)
-        
-            saved_dirs[dir_name] = dir_path
-            y = json.dumps(saved_dirs)
-            print(y)
-            with open("sample.json", "w") as outfile:
-                outfile.write(y)
-        except FileNotFoundError as e:
-            print(e)
-            print("An error occurred while trying to open the JSON file.")
-            print("The file may not have been created.")
-        
+        write_to_file(dir_name, dir_path)
 
     elif(optionVal == 5):
         open_file()
     '''else:
         option[optionVal](dest_dirs[optionVal])'''
+
+####### Functions ###########
+def write_to_file(dir_name, dir_path):
+    try:
+        with open('sample.json', 'r') as openfile:
+            # Reading from json file
+            saved_dirs = json.load(openfile)
+    
+        saved_dirs[dir_name] = dir_path
+        y = json.dumps(saved_dirs)
+        print(y)
+        with open("sample.json", "w") as outfile:
+            outfile.write(y)
+    except FileNotFoundError as e:
+        print(e)
+        print("An error occurred while trying to open the JSON file.")
+        print("The file may not have been created.")
 
 def open_file():
     try:
