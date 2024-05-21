@@ -190,6 +190,17 @@ def move_file():
     # Set the dest_dir to the absolute path, then perform the operation to move files
     # informing the user of the outcome of the operation
 
+def save_dir(dir_path):
+    save_dir = input("Want to save the source path for later use? (Y/N)")
+    if (save_dir == "Y" or save_dir == "y"):
+        dir_name = input("Enter the name/nickname (not path) for the directory: ")
+        if (dir_name != ""):
+            write_to_file(dir_name, dir_path)
+        else:
+            print("Directory name cannot be empty.")
+    else:
+        print("Path was not saved.")
+
 def write_to_file(dir_name, dir_path):
     try:
         with open('sample.json', 'r') as openfile:
