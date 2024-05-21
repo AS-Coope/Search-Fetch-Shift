@@ -194,6 +194,7 @@ def write_to_file(dir_name, dir_path):
 
 def open_file():
     try:
+        # with ensures that the file will be closed upon leaving the block
         with open('sample.json', 'r') as openfile:
 
         # Reading from json file
