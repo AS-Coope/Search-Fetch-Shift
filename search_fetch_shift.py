@@ -33,6 +33,7 @@ def create_src_dir():
 def create_dir(dir):
     if not path.exists(dir):
         os.makedirs(dir)
+        print(dir, "has been created.")
 
 def check_same_src_dest_dir():
     if (imgs_dest_dir == dest_dir and pdf_dest_dir == dest_dir):
@@ -146,10 +147,11 @@ def main_menu():
         # If not, ask them if they would like to save the directory they are about to use
         # If yes, let them enter a name and the absolute path of the directory
         src_dir = input("Enter the path of the sending directory: ")
+        create_dir(src_dir)
         print(src_dir)
         dest_dir = input("Enter the path of the receiving directory: ")
+        create_dir(dest_dir)
         print(dest_dir)
-        # perform failure checks to ensure that the src_dir and dest_dir are valid addresses
         shift_files(dest_dir, src_dir, file_ext_input)
         # Store that directory in the directory store JSON file
         # Use that directory to move the files and inform the user of the outcome of the operation
