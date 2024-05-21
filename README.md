@@ -39,7 +39,7 @@ deciding which files to move.
 - [X] The software shall allow the user to enter a specific file type.
 
 For v2.0
-- [ ] The software shall allow the user to store regularly used (whether as a source or destination) directory paths and store them persistently.
+- [X] The software shall allow the user to store regularly used (whether as a source or destination) directory paths persistently.
 - [ ] The software shall allow the user to choose the directory (whether source or destination) via a dialog box 
 (file explorer).
 - [ ] The software shall determine the user's Operating System and operate on directories based on the file system structure.
