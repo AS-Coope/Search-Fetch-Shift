@@ -135,32 +135,7 @@ def main_menu():
     if (optionVal == 0):
         exitProgram()
     elif(optionVal == 3):
-        # How this should work
-        # First, ask the file type the user would like to move
-        file_ext_input = input("Enter the file extension (Do not add the period in front of the extension)\n" + 
-              "Example: to use text files, enter 'txt' instead of '.txt': ")
-        #option[optionVal](dest_dirs[optionVal], file_ext_input)
-        # Then, display all saved directories (name and actual path)
-        # Ask, for the source directory
-        # Then, ask the user if they would like to use an existing (saved) directory or use another one
-        # If they want to use an existing directory, then they should choose from the list
-        # If not, ask them if they would like to save the directory they are about to use
-        # If yes, let them enter a name and the absolute path of the directory
-        src_dir = input("Enter the path of the sending directory: ")
-        create_dir(src_dir)
-        print(src_dir)
-        dest_dir = input("Enter the path of the receiving directory: ")
-        create_dir(dest_dir)
-        print(dest_dir)
-        # For both src_dir and dest_dir, do failure checks to make sure the path is valid (starts with C:\, etc)
-        # Will need to setup relevant functions to accept different paths depending on if the OS is Windows or Linux
-        # There should be a design pattern that allows that accommodation (Strategy Pattern)
-        shift_files(dest_dir, src_dir, file_ext_input)
-        # Store that directory in the directory store JSON file
-        # Use that directory to move the files and inform the user of the outcome of the operation
-        # If not, ask for the absolute path of the directory alone
-        # Set the dest_dir to the absolute path, then perform the operation to move files
-        # informing the user of the outcome of the operation
+        move_file()
     elif(optionVal == 4):
         dir_name = input("Please enter the directory name: ")
         dir_path = input("Please add the directory's absolute path: ")
@@ -172,6 +147,35 @@ def main_menu():
         option[optionVal](dest_dirs[optionVal])'''
 
 ####### Functions ###########
+
+def move_file():
+    # How this should work
+    # First, ask the file type the user would like to move
+    file_ext_input = input("Enter the file extension (Do not add the period in front of the extension)\n" + 
+            "Example: to use text files, enter 'txt' instead of '.txt': ")
+    #option[optionVal](dest_dirs[optionVal], file_ext_input)
+    # Then, display all saved directories (name and actual path)
+    # Ask, for the source directory
+    # Then, ask the user if they would like to use an existing (saved) directory or use another one
+    # If they want to use an existing directory, then they should choose from the list
+    # If not, ask them if they would like to save the directory they are about to use
+    # If yes, let them enter a name and the absolute path of the directory
+    src_dir = input("Enter the path of the sending directory: ")
+    create_dir(src_dir)
+    print(src_dir)
+    dest_dir = input("Enter the path of the receiving directory: ")
+    create_dir(dest_dir)
+    print(dest_dir)
+    # For both src_dir and dest_dir, do failure checks to make sure the path is valid (starts with C:\, etc)
+    # Will need to setup relevant functions to accept different paths depending on if the OS is Windows or Linux
+    # There should be a design pattern that allows that accommodation (Strategy Pattern)
+    shift_files(dest_dir, src_dir, file_ext_input)
+    # Store that directory in the directory store JSON file
+    # Use that directory to move the files and inform the user of the outcome of the operation
+    # If not, ask for the absolute path of the directory alone
+    # Set the dest_dir to the absolute path, then perform the operation to move files
+    # informing the user of the outcome of the operation
+
 def write_to_file(dir_name, dir_path):
     try:
         with open('sample.json', 'r') as openfile:
