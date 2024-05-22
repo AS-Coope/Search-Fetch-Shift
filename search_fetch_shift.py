@@ -181,8 +181,8 @@ def move_file():
     # informing the user of the outcome of the operation
 
 def save_dir(dir_path):
-    save_dir = input("Want to save the source path for later use? (Y/N)")
-    if (save_dir == "Y" or save_dir == "y"):
+    save_option = input("Want to save the source path for later use? (Y/N)")
+    if (save_option == "Y" or save_option == "y"):
         dir_name = input("Enter the name/nickname (not path) for the directory: ")
         if (dir_name != ""):
             write_to_file(dir_name, dir_path)
