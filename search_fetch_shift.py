@@ -162,7 +162,9 @@ def move_file():
         # Reading from json file
             json_object = json.load(openfile)
 
-            print(json_object)
+            #print(json_object)
+            for dir_name_key in json_object:
+                print("Name: ", dir_name_key + ", Path:", json_object[dir_name_key])
             #print(type(json_object))
     except FileNotFoundError as e:
         print(e)
