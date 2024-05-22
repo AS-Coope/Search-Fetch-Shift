@@ -213,7 +213,7 @@ def choose_dir(choose_disp_dir_option, dir_json_object, dir_type):
         return dir
 
 def save_dir(dir_path):
-    save_option = input("Want to save the source path for later use? (Y/N)")
+    save_option = input("Want to save the path for later use? (Y/N)")
     if (save_option == "Y" or save_option == "y"):
         dir_name = input("Enter the name/nickname (not path) for the directory: ")
         if (dir_name != ""):
