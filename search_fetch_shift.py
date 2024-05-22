@@ -154,34 +154,43 @@ def move_file():
     # First, ask the file type the user would like to move
     file_ext_input = input("Enter the file extension (Do not add the period in front of the extension)\n" + 
             "Example: to use text files, enter 'txt' instead of '.txt': ")
-    
+    dir_json_object = {}
     try:
         # with ensures that the file will be closed upon leaving the block
         with open('sample.json', 'r') as openfile:
 
         # Reading from json file
-            json_object = json.load(openfile)
+            dir_json_object = json.load(openfile)
 
-            #print(json_object)
-            for dir_name_key in json_object:
-                print("Name: ", dir_name_key + ", Path:", json_object[dir_name_key])
-            #print(type(json_object))
     except FileNotFoundError as e:
         print(e)
         print("An error occurred while trying to open the JSON file.")
         print("The file may not have been created.")
 
-    #option[optionVal](dest_dirs[optionVal], file_ext_input)
     # Then, display all saved directories (name and actual path)
+    for dir_name_key in dir_json_object:
+        print("Name: ", dir_name_key + ", Path:", dir_json_object[dir_name_key])
+    #option[optionVal](dest_dirs[optionVal], file_ext_input)
     # Ask, for the source directory
     # Then, ask the user if they would like to use an existing (saved) directory or use another one
+    choose_disp_dir_option = input("Use one of the displayed directories as the source directory? (Y/N): ")
     # If they want to use an existing directory, then they should choose from the list
+    if (choose_disp_dir_option == "Y" or choose_disp_dir_option == "y"):
+        dir_option = input("Type the NAME of the directory you choose: ")
+        if (dir_option != ""):
+            if (dir_option in dir_json_object):
+                src_dir = dir_json_object[dir_option]
+            else:
+                print("A valid directory name was not provided.")
+        else:
+            print("The directory name cannot be an empty string.")
     # If not, ask them if they would like to save the directory they are about to use
-    # If yes, let them enter a name and the absolute path of the directory
-    src_dir = input("Enter the path of the sending directory: ")
-    create_dir(src_dir)
-    print(src_dir)
-    save_dir(src_dir)
+    else:
+        src_dir = input("Enter the path of the sending directory: ")
+        create_dir(src_dir)
+        print(src_dir)
+        # If yes, let them enter a name and the absolute path of the directory
+        save_dir(src_dir)
 
     dest_dir = input("Enter the path of the receiving directory: ")
     create_dir(dest_dir)
@@ -231,10 +240,10 @@ def open_file():
         with open('sample.json', 'r') as openfile:
 
         # Reading from json file
-            json_object = json.load(openfile)
+            dir_json_object = json.load(openfile)
 
-            print(json_object)
-            #print(type(json_object))
+            print(dir_json_object)
+            #print(type(dir_json_object))
     except FileNotFoundError as e:
         print(e)
         print("An error occurred while trying to open the JSON file.")
