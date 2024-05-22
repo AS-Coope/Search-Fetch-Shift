@@ -167,7 +167,9 @@ def move_file():
         print("An error occurred while trying to open the JSON file.")
         print("The file may not have been created.")
 
-    # Then, display all saved directories (name and actual path)
+    # Display all saved directories (name and actual path)
+    print("")
+    print("| Saved Directories |")
     for dir_name_key in dir_json_object:
         print("Name: ", dir_name_key + ", Path:", dir_json_object[dir_name_key])
     
@@ -175,8 +177,8 @@ def move_file():
     # Ask, for the source directory
     # Then, ask the user if they would like to use an existing (saved) directory or use another one
 
+    # Users chooses whether to choose directory from directory store or to enter the directory themself
     choose_disp_dir_option = input("Use one of the displayed directories as the source directory? (Y/N): ")
-    # If they want to use an existing directory, then they should choose from the list
     src_dir = choose_dir(choose_disp_dir_option, dir_json_object, "sending")
 
     choose_disp_dir_option = input("Use one of the displayed directories as the destination directory? (Y/N): ")
@@ -186,14 +188,10 @@ def move_file():
     # Will need to setup relevant functions to accept different paths depending on if the OS is Windows or Linux
     # There should be a design pattern that allows that accommodation (Strategy Pattern)
     shift_files(dest_dir, src_dir, file_ext_input)
-    # Store that directory in the directory store JSON file
-    # Use that directory to move the files and inform the user of the outcome of the operation
-    # If not, ask for the absolute path of the directory alone
-    # Set the dest_dir to the absolute path, then perform the operation to move files
-    # informing the user of the outcome of the operation
 
 def choose_dir(choose_disp_dir_option, dir_json_object, dir_type):
     dir = ""
+    # User chooses a directory from the directory store
     if (choose_disp_dir_option == "Y" or choose_disp_dir_option == "y"):
         dir_option = input("Type the NAME of the directory you choose: ")
         if (dir_option != ""):
@@ -205,12 +203,12 @@ def choose_dir(choose_disp_dir_option, dir_json_object, dir_type):
             print("The directory name cannot be an empty string.")
         return dir
 
-    # If not, ask them if they would like to save the directory they are about to use
+    # User decides to enter the name and path of the directory themselves
     else:
         dir = input("Enter the path of the "+ dir_type +" directory: ")
         create_dir(dir)
         print(dir)
-        # If yes, let them enter a name and the absolute path of the directory
+        # User save directory, if relevant
         save_dir(dir)
         return dir
 
