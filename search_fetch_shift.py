@@ -31,6 +31,7 @@ def create_src_dir():
         os.makedirs(src_dir)
 
 def create_dir(dir):
+    # need to check that something was actual entered and not an invalid address or empty character
     if not path.exists(dir):
         os.makedirs(dir)
         print(dir, "has been created.")
@@ -153,6 +154,21 @@ def move_file():
     # First, ask the file type the user would like to move
     file_ext_input = input("Enter the file extension (Do not add the period in front of the extension)\n" + 
             "Example: to use text files, enter 'txt' instead of '.txt': ")
+    
+    try:
+        # with ensures that the file will be closed upon leaving the block
+        with open('sample.json', 'r') as openfile:
+
+        # Reading from json file
+            json_object = json.load(openfile)
+
+            print(json_object)
+            #print(type(json_object))
+    except FileNotFoundError as e:
+        print(e)
+        print("An error occurred while trying to open the JSON file.")
+        print("The file may not have been created.")
+
     #option[optionVal](dest_dirs[optionVal], file_ext_input)
     # Then, display all saved directories (name and actual path)
     # Ask, for the source directory
@@ -217,7 +233,6 @@ def open_file():
 
             print(json_object)
             #print(type(json_object))
-        pass
     except FileNotFoundError as e:
         print(e)
         print("An error occurred while trying to open the JSON file.")
