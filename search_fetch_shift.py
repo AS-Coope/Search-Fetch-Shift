@@ -170,32 +170,17 @@ def move_file():
     # Then, display all saved directories (name and actual path)
     for dir_name_key in dir_json_object:
         print("Name: ", dir_name_key + ", Path:", dir_json_object[dir_name_key])
+    
     #option[optionVal](dest_dirs[optionVal], file_ext_input)
     # Ask, for the source directory
     # Then, ask the user if they would like to use an existing (saved) directory or use another one
+
     choose_disp_dir_option = input("Use one of the displayed directories as the source directory? (Y/N): ")
     # If they want to use an existing directory, then they should choose from the list
-    if (choose_disp_dir_option == "Y" or choose_disp_dir_option == "y"):
-        dir_option = input("Type the NAME of the directory you choose: ")
-        if (dir_option != ""):
-            if (dir_option in dir_json_object):
-                src_dir = dir_json_object[dir_option]
-            else:
-                print("A valid directory name was not provided.")
-        else:
-            print("The directory name cannot be an empty string.")
-    # If not, ask them if they would like to save the directory they are about to use
-    else:
-        src_dir = input("Enter the path of the sending directory: ")
-        create_dir(src_dir)
-        print(src_dir)
-        # If yes, let them enter a name and the absolute path of the directory
-        save_dir(src_dir)
+    src_dir = choose_dir(choose_disp_dir_option, dir_json_object, "sending")
 
-    dest_dir = input("Enter the path of the receiving directory: ")
-    create_dir(dest_dir)
-    print(dest_dir)
-    save_dir(dest_dir)
+    choose_disp_dir_option = input("Use one of the displayed directories as the destination directory? (Y/N): ")
+    dest_dir = choose_dir(choose_disp_dir_option, dir_json_object, "receving")
 
     # For both src_dir and dest_dir, do failure checks to make sure the path is valid (starts with C:\, etc)
     # Will need to setup relevant functions to accept different paths depending on if the OS is Windows or Linux
@@ -206,6 +191,28 @@ def move_file():
     # If not, ask for the absolute path of the directory alone
     # Set the dest_dir to the absolute path, then perform the operation to move files
     # informing the user of the outcome of the operation
+
+def choose_dir(choose_disp_dir_option, dir_json_object, dir_type):
+    dir = ""
+    if (choose_disp_dir_option == "Y" or choose_disp_dir_option == "y"):
+        dir_option = input("Type the NAME of the directory you choose: ")
+        if (dir_option != ""):
+            if (dir_option in dir_json_object):
+                dir = dir_json_object[dir_option]
+            else:
+                print("A valid directory name was not provided.")
+        else:
+            print("The directory name cannot be an empty string.")
+        return dir
+
+    # If not, ask them if they would like to save the directory they are about to use
+    else:
+        dir = input("Enter the path of the "+ dir_type +" directory: ")
+        create_dir(dir)
+        print(dir)
+        # If yes, let them enter a name and the absolute path of the directory
+        save_dir(dir)
+        return dir
 
 def save_dir(dir_path):
     save_option = input("Want to save the source path for later use? (Y/N)")
