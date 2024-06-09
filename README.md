@@ -1,6 +1,8 @@
 # Search Fetch Shift (SFS)
 This is a command-line application that allows you to move files of similar file type from one directory to the next, all at once!
 
+<img src="img/Search_Fetch_Shift_Menu.png" height=auto width=550px alt="Screenshot: Voice Recorder App Audio List">
+
 ## Motivation
 
 Sometimes, when users want to do something very quickly with a file they need to download, they download and use it, but forget to move it to the desired folder they intended to move it to. Eventually, when searching for it, they realize that they can't find it. This gets even more cumbersome when there are many files to move and you have to search for each of them across varying dates in the file explorer.
