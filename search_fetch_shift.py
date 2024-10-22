@@ -62,28 +62,6 @@ def get_all_files(src_dir):
         if(isfile(join(src_dir, item))):
             all_files_in_src.append(item)
 
-### obsolete method
-'''
-def shift_image_files(img_func_dest_dir):
-    
-    # find all image files (specifically .jpg and .png)
-    for file in all_files_in_src:
-        # searching specifically for image files and MOVING them from the source directory to the destination directory 
-        if ( join(src_dir, file).endswith( ('.jpg', '.png') ) ):
-            shutil.move(join(src_dir, file), img_func_dest_dir)
-            print(file, "successfully moved from", src_dir, "to", img_func_dest_dir, "!")
-'''
-### obsolete method
-'''
-def shift_pdf_files(pdf_func_dest_dir):
-
-    # find all image files (specifically .jpg and .png)
-    for file in all_files_in_src:
-        # searching specifically for image files and MOVING them from the source directory to the destination directory 
-        if ( join(src_dir, file).endswith( '.pdf' ) ):
-            shutil.move(join(src_dir, file), pdf_func_dest_dir)
-            print(file, "successfully moved from", src_dir, "to", pdf_func_dest_dir, "!")
-'''
 def shift_files(dest_dir, src_dir, file_ext):
     # Saves all files in the source directory in a list #
     get_all_files(src_dir)
