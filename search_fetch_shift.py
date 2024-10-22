@@ -103,27 +103,25 @@ def create_directory_store():
 
 def main_menu():
     print("|Search Fetch Shift")
-    print("|1. Moves Image Files (.png, .jpg)")
-    print("|2. Move PDF files (.pdf)")
-    print("|3. Move files of another type")
-    print("|4. Add a directory")
-    print("|5. Look at directories")
+    print("|1. Move files of another type")
+    print("|2. Add a directory")
+    print("|3. Look at directories")
     print("|0. Exit program")
     optionVal = int(input("|Enter the number beside the operation you want to perform: "))
 
     if (optionVal == 0):
         exitProgram()
-    elif(optionVal == 3):
+    elif(optionVal == 1):
         move_file()
-    elif(optionVal == 4):
+    elif(optionVal == 2):
         dir_name = input("Please enter the directory name: ")
         dir_path = input("Please add the directory's absolute path: ")
         write_to_file(dir_name, dir_path)
 
-    elif(optionVal == 5):
+    elif(optionVal == 3):
         open_file()
-    '''else:
-        option[optionVal](dest_dirs[optionVal])'''
+    else:
+        print("Invalid option selected... Terminating...")
 
 ####### Functions ###########
 
