@@ -32,17 +32,18 @@ Download and install [Python](https://www.python.org/downloads/) (ensure it is a
 
 ## Deliverables
 For v1.0:
-- [X] The software shall allow the user to move files of the same file type from one directory to another.
-
-For v1.5
-- [ ] The software shall allow the user to copy files of the same file type from one directory to another.
-- [ ] The software shall provide the user with a set of commonly used file types for them to choose from when
-deciding which files to move.
-- [X] The software shall allow the user to enter a specific file type.
+- [X] Allow the user to move files of a particular file extension from one directory to another.
+- [ ] Allow the user to move files of a particular file extension and name (whether matching full  name or substring) from one directory to another.
+- [ ] Allow the user to move files of a particular name (whether matching full name or a substring) from one directory to another.
+- [ ] Allow the user to store regularly used directory paths.
+- [ ] Allow the user to view stored directory paths.
+- [ ] Allow the user to remove stored directory paths.
+- [ ] Provide the user with the option to use an Interactive/Menu mode (where the user is provided a menu to go through to complete their action) and a Command/Utility mode (where the user passes the command immediately at the command prompt and the command is executed without further interaction needed from the user unless an error occurs).
+- [ ] Determine the user's operating system and operate on directories based on the file system structure.
 
 For v2.0
-- [X] The software shall allow the user to store regularly used (whether as a source or destination) directory paths persistently.
-- [ ] The software shall allow the user to choose the directory (whether source or destination) via a dialog box 
-(file explorer).
-- [ ] The software shall determine the user's Operating System and operate on directories based on the file system structure.
-- [ ] Create a test suite to ensure proper functionality of all features.
+- [ ] Allow the user to copy files of a particular file extension from one directory to another.
+- [ ] Allow the user to copy files of a particular file extension and name (whether matching full name or substring) from one directory to another.
+- [ ]  Allow the user to copy files of a particular name (whether matching full name or substring) from one directory to another.
+- [ ] Parse a directory's path received to determine whether it is relative or not, and if so, break it down to its absolute path.
+- [ ] Provide a help/man-page.
